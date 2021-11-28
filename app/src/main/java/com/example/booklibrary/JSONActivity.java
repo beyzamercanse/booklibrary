@@ -8,11 +8,11 @@ import android.os.FileUtils;
 import android.text.Editable;
 import android.util.Log;
 import android.widget.Toast;
+import com.example.booklibrary.utils.FileUtils
 
 import com.bumptech.glide.Glide;
 import com.example.booklibrary.databinding.ActivityJsonBinding;
 import com.example.booklibrary.models.BookModel;
-import com.example.booklibrary.utils.FileUtils;
 import com.google.gson.Gson;
 
 import org.json.JSONException;
@@ -24,6 +24,8 @@ import android.text.method.ScrollingMovementMethod;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
+import com.bumptech.glide.annotation.GlideModule;
+import com.bumptech.glide.module.AppGlideModule;
 
 public class JSONActivity extends AppCompatActivity{
     private ActivityJsonBinding binding;
