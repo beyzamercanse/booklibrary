@@ -13,16 +13,15 @@ import java.nio.charset.StandardCharsets;
 
 public class FileUtils {
 
-
     public static String readFile(Context context, String filename) throws FileNotFoundException {
         return FileUtils.readStream(context.openFileInput(filename));
     }
 
 
-    public static String readStream(InputStream inputStream) {
+    public static String readStream(InputStream fis) {
         String contents = "";
         InputStreamReader inputStreamReader =
-                new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+                new InputStreamReader(fis, StandardCharsets.UTF_8);
         StringBuilder stringBuilder = new StringBuilder();
 
         try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
