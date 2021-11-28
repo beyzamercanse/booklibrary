@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.example.booklibrary.utils.FileUtils;
 
 import com.bumptech.glide.Glide;
-import com.example.booklibrary.databinding.ActivityJsonBinding;
+//import com.example.booklibrary.databinding.ActivityJSONBinding;
 import com.example.booklibrary.models.BookModel;
 import com.google.gson.Gson;
 
@@ -28,7 +28,7 @@ import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.module.AppGlideModule;
 
 public class JSONActivity extends AppCompatActivity{
-    private ActivityJsonBinding binding;
+    private JSONActivity binding;
     private BookModel item;
 
     private final Gson gson = new Gson();
@@ -37,7 +37,7 @@ public class JSONActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityJsonBinding.inflate(getLayoutInflater());
+        binding = JSONActivity.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         binding.textPrint.setMovementMethod(new ScrollingMovementMethod());
