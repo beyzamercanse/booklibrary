@@ -1,8 +1,10 @@
 package com.example.booklibrary;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.FileUtils;
 import android.text.Editable;
@@ -64,18 +66,19 @@ public class JSONActivity extends AppCompatActivity{
         updateIU();
     }
 
-    public void updateIU() {
-        String text = "재목: " + item.getTitle() + ", 가격: " + item.getPrice();
-        binding.textPrint.setText(text);
-        binding.textTitle.setText(item.getTitle());
-        binding.textAuthor.setText(item.getAuthor());
-        binding.textPrice.setText(String.format("%,d원", item.getPrice()));
-        binding.textDescription.setText(Html.fromHtml(item, getDescription()));
-        binding.editComment.setText(item.getComments());
+//    @RequiresApi(api = Build.VERSION_CODES.N)
+//    public void updateIU() {
+//        String text = "재목: " + item.getTitle() + ", 가격: " + item.getPrice();
+//        binding.textPrint.setText(text);
+//        binding.textTitle.setText(item.getTitle());
+//        binding.textAuthor.setText(item.getAuthor());
+//        binding.textPrice.setText(String.format("%,d원", item.getPrice()));
+//        binding.textDescription.setText(Html.fromHtml(item, getDescription()));
+//        binding.editComment.setText(item.getComments());
+//
+//        Glide.with(this)
+//                .load(item.getImage())
+//                .into(binding.imageBook);}
 
-        Glide.with(this)
-                .load(item.getImage())
-                .into(binding.imageBook);
 
-    }
 }

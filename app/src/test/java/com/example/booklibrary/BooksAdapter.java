@@ -1,2 +1,4 @@
-package com.example.booklibrary;public class BooksAdapter {
+package com.example.booklibrary;
+
+public class BooksAdapter {
 }
