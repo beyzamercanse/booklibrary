@@ -1,9 +1,7 @@
 package com.example.booklibrary;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.bumptech.glide.annotation.GlideModule;
-import com.bumptech.glide.module.AppGlideModule;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
 
@@ -19,27 +17,13 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 
-import android.content.Context;
 //import android.os.FileUtils;
-import android.text.Editable;
-import android.widget.Toast;
 import com.example.booklibrary.databinding.ActivityMainBinding;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
-import com.google.gson.reflect.TypeToken;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -51,9 +35,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-//        binding.buttonSave.setOnClickListener(v -> save());
-//        binding.buttonLoad.setOnClickListener(v -> load());
 
         try {
 //            String book = readFromAssets("abook.json");
@@ -71,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
             List<BookModel> array = gson.fromJson(booksJson, new TypeToken<List<BookModel>>() {
             }.getType());
             temp(bookJson);
+
+        BookAdapter textAdapter = new BookAdapter(array);
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL));
+        binding.recyclerView.setAdapter(textAdapter);
 
 
         } catch (IOException e) {
